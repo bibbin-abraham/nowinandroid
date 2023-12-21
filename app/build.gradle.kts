@@ -148,5 +148,8 @@ dependencies {
     testImplementation(libs.work.testing)
     testImplementation(kotlin("test"))
     kspTest(libs.hilt.compiler)
+}
 
+dependencyGuard {
+    configuration("prodReleaseRuntimeClasspath")
 }
