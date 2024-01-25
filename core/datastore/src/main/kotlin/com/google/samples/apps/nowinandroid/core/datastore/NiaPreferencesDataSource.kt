@@ -56,6 +56,7 @@ class NiaPreferencesDataSource @Inject constructor(
                 },
                 useDynamicColor = it.useDynamicColor,
                 shouldHideOnboarding = it.shouldHideOnboarding,
+                isGuestUser = it.isGuestUser,
             )
         }
 
@@ -189,6 +190,12 @@ class NiaPreferencesDataSource @Inject constructor(
     suspend fun setShouldHideOnboarding(shouldHideOnboarding: Boolean) {
         userPreferences.updateData {
             it.copy { this.shouldHideOnboarding = shouldHideOnboarding }
+        }
+    }
+
+    suspend fun setIsGuestUser(isGuestUser: Boolean) {
+        userPreferences.updateData {
+            it.copy { this.isGuestUser = isGuestUser }
         }
     }
 }

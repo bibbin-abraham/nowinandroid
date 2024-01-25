@@ -68,5 +68,14 @@ fun NiaNavHost(
                 )
             },
         )
+        profileGraph(
+            onProfileActionClicked = navController::navigateToProfileAction,
+            nestedGraphs = {
+                profileActionScreen(
+                    onBackClick = navController::popBackStack,
+                    onProfileActionClicked = navController::navigateToProfileAction,
+                )
+            }
+        )
     }
 }

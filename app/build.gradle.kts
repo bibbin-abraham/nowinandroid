@@ -90,6 +90,7 @@ dependencies {
     implementation(projects.feature.topic)
     implementation(projects.feature.search)
     implementation(projects.feature.settings)
+    implementation(projects.feature.profile)
 
     implementation(projects.core.common)
     implementation(projects.core.ui)

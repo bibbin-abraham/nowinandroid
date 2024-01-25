@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 14,
-    "identityHash": "51271b81bde7c7997d67fb23c8f31780",
+    "identityHash": "5787dbdef021fa51c5dfc727656789f9",
     "entities": [
       {
         "tableName": "news_resources",
@@ -297,12 +297,72 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "profileInfo",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`userId` TEXT NOT NULL, `displayName` TEXT NOT NULL, `email` TEXT NOT NULL, `imageUrl` TEXT NOT NULL DEFAULT '', `followedTopicsCount` INTEGER NOT NULL DEFAULT 0, `completedTopicsCount` INTEGER NOT NULL DEFAULT 0, `profileRank` TEXT NOT NULL DEFAULT 'BEGINNER', PRIMARY KEY(`userId`))",
+        "fields": [
+          {
+            "fieldPath": "userId",
+            "columnName": "userId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "displayName",
+            "columnName": "displayName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "email",
+            "columnName": "email",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "imageUrl",
+            "columnName": "imageUrl",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "''"
+          },
+          {
+            "fieldPath": "followedTopicsCount",
+            "columnName": "followedTopicsCount",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "completedTopicsCount",
+            "columnName": "completedTopicsCount",
+            "affinity": "INTEGER",
+            "notNull": true,
+            "defaultValue": "0"
+          },
+          {
+            "fieldPath": "profileRank",
+            "columnName": "profileRank",
+            "affinity": "TEXT",
+            "notNull": true,
+            "defaultValue": "'BEGINNER'"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "userId"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '51271b81bde7c7997d67fb23c8f31780')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5787dbdef021fa51c5dfc727656789f9')"
     ]
   }
 }

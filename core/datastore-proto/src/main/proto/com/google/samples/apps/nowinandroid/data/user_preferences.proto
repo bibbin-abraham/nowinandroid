@@ -47,7 +47,9 @@ message UserPreferences {
 
     bool should_hide_onboarding = 18;
 
+    bool is_guest_user = 21;
+
     bool use_dynamic_color = 19;
 
-    // NEXT AVAILABLE ID: 21
+    // NEXT AVAILABLE ID: 22
 }

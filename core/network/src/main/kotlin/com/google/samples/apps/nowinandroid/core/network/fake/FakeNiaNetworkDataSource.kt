@@ -17,6 +17,7 @@
 package com.google.samples.apps.nowinandroid.core.network.fake
 
 import JvmUnitTestFakeAssetManager
+import com.google.samples.apps.nowinandroid.core.model.data.ProfileInfo
 import com.google.samples.apps.nowinandroid.core.network.Dispatcher
 import com.google.samples.apps.nowinandroid.core.network.NiaDispatchers.IO
 import com.google.samples.apps.nowinandroid.core.network.NiaNetworkDataSource
@@ -50,6 +51,8 @@ class FakeNiaNetworkDataSource @Inject constructor(
         withContext(ioDispatcher) {
             assets.open(NEWS_ASSET).use(networkJson::decodeFromStream)
         }
+
+    override suspend fun getProfileInfo(): ProfileInfo
 
     override suspend fun getTopicChangeList(after: Int?): List<NetworkChangeList> =
         getTopics().mapToChangeList(NetworkTopic::id)

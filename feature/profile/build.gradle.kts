@@ -14,18 +14,21 @@
  * limitations under the License.
  */
 
-package com.google.samples.apps.nowinandroid.core.model.data
+plugins {
+    alias(libs.plugins.nowinandroid.android.feature)
+    alias(libs.plugins.nowinandroid.android.library.compose)
+    alias(libs.plugins.nowinandroid.android.library.jacoco)
+}
+android {
+    namespace = "com.google.samples.apps.nowinandroid.feature.profile"
+}
 
-/**
- * Class summarizing user interest data
- */
-data class UserData(
-    val bookmarkedNewsResources: Set<String>,
-    val viewedNewsResources: Set<String>,
-    val followedTopics: Set<String>,
-    val themeBrand: ThemeBrand,
-    val darkThemeConfig: DarkThemeConfig,
-    val useDynamicColor: Boolean,
-    val shouldHideOnboarding: Boolean,
-    val isGuestUser: Boolean,
-)
+dependencies {
+    implementation(projects.core.data)
+    implementation(projects.core.domain)
+
+    testImplementation(projects.core.testing)
+
+    androidTestImplementation(projects.core.testing)
+}
+

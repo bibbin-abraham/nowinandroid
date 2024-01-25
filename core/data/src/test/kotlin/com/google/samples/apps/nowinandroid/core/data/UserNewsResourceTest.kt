@@ -73,6 +73,7 @@ class UserNewsResourceTest {
             darkThemeConfig = FOLLOW_SYSTEM,
             useDynamicColor = false,
             shouldHideOnboarding = true,
+            isGuestUser = true,
         )
 
         val userNewsResource = UserNewsResource(newsResource1, userData)
